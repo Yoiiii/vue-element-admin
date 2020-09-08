@@ -5,6 +5,7 @@ import { asyncRoutes, constantRoutes } from '@/router'
  * @param roles
  * @param route
  */
+// 判断路由是否含有权限规则
 function hasPermission(roles, route) {
   if (route.meta && route.meta.roles) {
     return roles.some(role => route.meta.roles.includes(role))
@@ -18,6 +19,7 @@ function hasPermission(roles, route) {
  * @param routes asyncRoutes
  * @param roles
  */
+// 过滤拥有访问权限的路由
 export function filterAsyncRoutes(routes, roles) {
   const res = []
 
